@@ -9,7 +9,7 @@ Have you ever wondered what the local weather conditions are in your garden? Wou
 We proposed to create a Raspberry Pi Weather station that collects and displays all its data in a very easy to understand format. The device will initially feature temperature, humidity and air pressure sensors.
 It will also provide you weather data with up-to-the-minute precision, as well as daily, weekly and monthly summaries.
 
-This device will be significantly smaller and cheaper than a conventional weather station. :)
+This device will be significantly smaller and cheaper than a conventional weather station :)
 
 ## Solution
 
