@@ -1,3 +1,6 @@
+![dei cing 2](https://user-images.githubusercontent.com/36344537/36075929-44b53396-0f4d-11e8-983c-956414d058c5.png)
+
+
 # umbrella
 
 Umbrella is a weather station based on Raspberry Pi.
