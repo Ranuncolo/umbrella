@@ -26,8 +26,8 @@ Umbrella is formed by three main parts:
 
 3. [Pressure sensor](http://uk.farnell.com/honeywell/abpllnt010bgaa5/pressure-sensor-10bar-axial-barbless/dp/2490461)
 
-  4. [Photoresistor](http://uk.farnell.com/advanced-photonix/nsl-19m51/light-dependent-resistor-550nm/dp/3168335)
+    4. [Photoresistor](http://uk.farnell.com/advanced-photonix/nsl-19m51/light-dependent-resistor-550nm/dp/3168335)
 
-  5. [Hall sensor - wind speed](http://uk.farnell.com/allegro-microsystems/a1302kua-t/sensor-hall-effect-linear-3sip/dp/1791388)
+    5. [Hall sensor - wind speed](http://uk.farnell.com/allegro-microsystems/a1302kua-t/sensor-hall-effect-linear-3sip/dp/1791388)
 
-  6. [Reed switches - wind direction, tipping rain gauge](http://uk.farnell.com/standexmeder/mk23-85-e-2/reed-switch-spst-no-1a-1kv-smd/dp/2453625)
+    6. [Reed switches - wind direction, tipping rain gauge](http://uk.farnell.com/standexmeder/mk23-85-e-2/reed-switch-spst-no-1a-1kv-smd/dp/2453625)
