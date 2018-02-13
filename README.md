@@ -1,4 +1,4 @@
-![alt text](https://github.com/Ranuncolo/umbrella/blob/master/header.png)
+![alt text](https://github.com/Ranuncolo/umbrella/blob/master/header.jpg)
 
 # umbrella
 
