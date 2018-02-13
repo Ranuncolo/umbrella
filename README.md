@@ -1,6 +1,13 @@
 # umbrella
 
-Weather station based on Raspberry Pi
+Weather station based on Raspberry Pi.
+
+
+## Problem
+Have you ever wondered what the local weather conditions are in your garden? Wouldn't you like a simple way to get all the necessary data for growing the best possible plants in your garden? 
+
+We proposed to create a Raspberry Pi Weather station that collects and displays all its data in a very easy to understand format. The device will initially feature temperature, humidity and air pressure sensors.
+The device will provide you weather data with up-to-the-minute precision, as well as daily, weekly and monthly summaries.
 
 ## Components
 
