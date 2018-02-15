@@ -1,2 +1,6 @@
 test est es e
 and now in the opposite direction
+
+
+try this:
+"rmmod w1_therm; modprobe w1_therm strong_pullup=2"
