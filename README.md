@@ -18,7 +18,7 @@ This device will be significantly smaller and cheaper than a conventional weathe
 Umbrella is formed by three main parts: 
 - **Hardware**: various meteorological sensors;
 - **Software**: written in C/C++;
-- **Display**: JavaScript based web app.
+- **Display**: [JavaScript based web app.](http://aws-website-umbrellaweatherapp-ycvsz.s3-website-us-east-1.amazonaws.com/)
 
 ### Components
 
