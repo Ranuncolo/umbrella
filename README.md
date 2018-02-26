@@ -39,6 +39,6 @@ Umbrella is formed by three main parts:
     
     Email: UmbrellaRPI@gmail.com
     
-    Twitter https://twitter.com/UmbrellaRPI
+    Twitter: https://twitter.com/UmbrellaRPI
     
-    Facebook https://www.facebook.com/UmbrellaRPI
+    Facebook: https://www.facebook.com/UmbrellaRPI
