@@ -34,3 +34,8 @@ Umbrella is formed by three main parts:
     2. [Hall sensor - wind speed](http://uk.farnell.com/allegro-microsystems/a1302kua-t/sensor-hall-effect-linear-3sip/dp/1791388)
 
     3. [Reed switches - wind direction, tipping rain gauge](http://uk.farnell.com/standexmeder/mk23-85-e-2/reed-switch-spst-no-1a-1kv-smd/dp/2453625)
+    
+    ### Contact    
+    
+    Email: UmbrellaRPI@gmail.com
+    Twitter https://twitter.com/UmbrellaRPI
