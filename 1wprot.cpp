@@ -65,7 +65,7 @@ int main()
     // check:
     if (!file)
     {
-        cout << "unable to open it." << endl;
+        cout << "unable to open it.";
         return 0;
     }
     
@@ -199,7 +199,7 @@ int main()
         // check:
         if (!data1)
         {
-            cout << "Unable to open the sensor" << endl;
+            cout << "Unable to open the sensor";
             return 1; // abort
         }
         
@@ -210,7 +210,7 @@ int main()
             data2.open(sensor2); //JFDSAJDSAJDJSAD SAD
             if (!data2)
             {
-                cout << "Unable to open one of the sensors." << endl;
+                cout << "Unable to open one of the sensors.";
                 return 1; // abort
             }
         }
@@ -221,7 +221,7 @@ int main()
             data3.open(path3);
             if (!data2 || !data3) // not sure about this statement
             {
-                cout << "Unable to open one of the sensors." << endl;
+                cout << "Unable to open one of the sensors.";
                 return 1; // abort
             }
         }
