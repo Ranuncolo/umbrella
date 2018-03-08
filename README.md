@@ -26,7 +26,7 @@ Umbrella is formed by three main parts:
 
 2. [Humidity sensor](http://uk.farnell.com/honeywell/hih6030-021-001/sensor-humidity-no-filter-4-5/dp/2356755?st=hih6030-021-001)
 
-3. [Pressure sensor](http://uk.farnell.com/honeywell/abpllnt010bgaa5/pressure-sensor-10bar-axial-barbless/dp/2490461)
+3. [Pressure sensor](http://uk.farnell.com/nxp/mpl3115a2/pressure-sensor-20-110kpa-8lga/dp/2009084)
 
 4. [Ambient Light Sensor](http://uk.farnell.com/texas-instruments/opt3001dnpt/ambient-light-sensor-uson-6/dp/2504234)
   
