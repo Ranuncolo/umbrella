@@ -28,7 +28,7 @@ Umbrella is formed by three main parts:
 
 3. [Pressure sensor](http://uk.farnell.com/honeywell/abpllnt010bgaa5/pressure-sensor-10bar-axial-barbless/dp/2490461)
 
-4. [Ambient Light Sensor].(http://uk.farnell.com/texas-instruments/opt3001dnpt/ambient-light-sensor-uson-6/dp/2504234)
+4. [Ambient Light Sensor](http://uk.farnell.com/texas-instruments/opt3001dnpt/ambient-light-sensor-uson-6/dp/2504234)
   
 ### Contact    
     
