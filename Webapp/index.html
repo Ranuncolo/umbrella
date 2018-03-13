@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <title>Umbrella RPI</title>
+        
+        <link rel="stylesheet" href="main.css">
+		<link rel="icon" 
+      type="image/jpg" 
+      href="icon.jpg" />
+		
+	<script src="https://www.gstatic.com/charts/loader.js"></script>
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+	<script src="jquery-csv.js"></script>
+	
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+		
+		// Reading in a locally stored CSV file to an array of numbers
+		$.get("2017T.csv", function(csvString) {
+		var dataarray = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});  
+		
+	    // Turning array into format usable by Google Charts
+		var data = google.visualization.arrayToDataTable(dataarray);
+
+		// Formatting Google Charts
+        var options = {
+          title: 'Raspberry PI Temperature plot - Yearly',
+		  titleTextStyle: {
+			fontSize: '18',
+			},
+		  vAxis: { 
+			title: 'Temperature (\u00B0 C)' ,
+			titleTextStyle: {
+				italic: 'FALSE',
+				fontSize: '14',
+			},
+			baseline: '0',
+			baselineColor: 'black',
+			gridlines: { color: 'transparent'},
+			},
+		  hAxis: {
+			title: 'Date',
+			titleTextStyle: {
+				italic: 'FALSE',
+				fontSize: '14',
+			},
+			baseline: '0',
+			baselineColor: 'black',
+			gridlines: { color: 'transparent'},
+			},
+		  curveType: 'function',
+		  backgroundColor: {
+			stroke: 'black',
+			strokeWidth: '5',
+			},
+		  haxis: {
+			title: 'Hello',
+			},
+          legend: {position: 'none'},
+        };
+
+		//Creating Charts
+        var chart = new google.visualization.LineChart(document.getElementById('temp_year'));
+	
+        chart.draw(data, options);
+		});
+      }
+    </script>
+
+
+    </head>
+    <body>
+        
+    
+        <img alt="umbrella" src="header.jpg" />
+       
+        
+        <h1>Weather Tracker</h1>
+        <h2>Live Weather Data</h2>
+        
+
+        <p>
+            Code here for live weather data.
+        </p>
+        
+             
+  
+        <h2>Historic Weather Data</h2>
+		
+        <p>
+         <!--
+            Code here for plotting data
+        -->
+
+    <div id="temp_year" style="width: 800px; height: 400px"></div>
+        </p>
+        <ul>
+            <li>umbrella code available on <a href="https://github.com/Ranuncolo/umbrella">GitHub</a></li>
+        </ul>
+        
+    </body>
+</html>
