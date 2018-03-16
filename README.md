@@ -20,6 +20,8 @@ Umbrella is formed by three main parts:
 - **Software**: written in C/C++;
 - **Display**: JavaScript based web app.
 
+![alt text](https://github.com/Ranuncolo/umbrella/blob/master/Block Diagram.pdf)
+
 ### Components
 
 1. [Temperature sensor](http://uk.farnell.com/on-semiconductor/nct75dmr2g/temperature-sensor-3deg-c-msop/dp/2627996)
