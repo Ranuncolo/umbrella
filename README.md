@@ -1,4 +1,4 @@
-![alt text](https://github.com/Ranuncolo/umbrella/blob/master/header.jpg)
+![Umbrella!](https://github.com/Ranuncolo/umbrella/blob/master/header.jpg)
 
 # umbrella
 
@@ -22,10 +22,7 @@ Umbrella is formed by three main parts:
 
 
 
-<div style="width: 500px; height: 176px; overflow:hidden;">
-  <img src="https://github.com/Ranuncolo/umbrella/blob/master/BlockDiagram.jpg" width="500" height="176">
-</div>
-![alt text](https://github.com/Ranuncolo/umbrella/blob/master/BlockDiagram.jpg)
+![Block Diagram](https://github.com/Ranuncolo/umbrella/blob/master/BlockDiagram.jpg)
 
 ### Components
 
