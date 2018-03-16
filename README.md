@@ -20,6 +20,11 @@ Umbrella is formed by three main parts:
 - **Software**: written in C/C++;
 - **Display**: JavaScript based web app.
 
+
+
+<div style="width: 141px; height: 176px; overflow: hidden">
+  <img src="https://github.com/Ranuncolo/umbrella/blob/master/BlockDiagram.jpg" width="150" height="176">
+</div>
 ![alt text](https://github.com/Ranuncolo/umbrella/blob/master/BlockDiagram.jpg)
 
 ### Components
