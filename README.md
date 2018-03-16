@@ -22,8 +22,8 @@ Umbrella is formed by three main parts:
 
 
 
-<div style="width: 141px; height: 176px; overflow: hidden">
-  <img src="https://github.com/Ranuncolo/umbrella/blob/master/BlockDiagram.jpg" width="150" height="176">
+<div style="width: 500px; height: 176px; overflow: hidden">
+  <img src="https://github.com/Ranuncolo/umbrella/blob/master/BlockDiagram.jpg" width="500" height="176">
 </div>
 ![alt text](https://github.com/Ranuncolo/umbrella/blob/master/BlockDiagram.jpg)
 
