@@ -35,9 +35,9 @@ Communication with the sensors is accomplished using the I<sup>2</sup>C protocol
 
 The project is split into roughly three equal parts.  Equal responsibility was ensured through constant communication with other group members.  Due to the These part were: 
 
-1. Hardware and electronic circuit design - Paul Harrison
-2. Data processing onboard the Raspberry Pi - Rene Gaio
-3. Data visualisation in a web browser - Daniel Marwick
+1. Hardware and electronic circuit design - [Paul Harrison](http://github.com/pbh001)
+2. Data processing onboard the Raspberry Pi - [Rene Gaio](http://github.com/Ranuncolo)
+3. Data visualisation in a web browser - [Daniel Marwick](http://github.com/danmarwick)
 
 The connectivity of these parts of the system can be see in the block diagram below.
 
