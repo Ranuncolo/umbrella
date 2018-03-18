@@ -5,7 +5,7 @@
 Umbrella is a weather station based on Raspberry Pi.
 
 
-## Problem
+## Introduction
 Have you ever wondered what the local weather conditions are in your garden? Wouldn't you like a simple way to get all the necessary data for growing the best possible plants in your garden? 
 
 We proposed to create a Raspberry Pi Weather station that collects and displays all its data in a very easy to understand format. The device will initially feature temperature, humidity and air pressure sensors.
@@ -53,6 +53,42 @@ Data is read from the sensors in binary format, converted to numeric values and 
 17. What is the release strategy / publication / publicity? How is that measured and deemed to be successful?
 18. Measurement of success of the application in the context of the problem given and evaluation of it. -->
 
+## Installation Instructions
+
+### Hardware
+Hardware installation instructions
+
+#### Notes
+Tips, tricks and troubleshooting on hardware set up
+
+### Data Processing Software
+Data processing installation instructions
+
+#### Notes
+Tips, tricks and troubleshooting on C++ code set up
+
+### Javascript Web App
+Adding webserver functionality to your Raspberry Pi is simple!  All you have to do is install Node.Js for Debian.  This can be accomplished using two commands:
+
+> wget http://<i></i>node-arm.herokuapp.com/node_latest_armhf.deb
+
+> sudo dpkg -i node_latest_armhf.deb
+
+This should download the latest version of Node.Js for Debian.  The second command should install the package.
+
+At this stage you should be able to run .js scripts from the command line using the command "node filename.js".  You can go one step further to get your web app code to launch when the Raspberry Pi boots up by editing your rc.local file!
+
+> sudo nano /etc/rc.local
+
+and add the following line of code above the "exit 0" line.  Do not delete the "exit 0" line!
+
+> sudo node /usr/local/webserver.js &
+
+If you save your code in a different folder then change the full path of the webserver.js file accordingly.
+
+#### Notes
+- The "&" symbol in the rc.local file is crucial for this code. It creates a new branch for the webserver code and allows it to run in the background.  If we were to omit this symbol then the Pi would wait for the script to finish executing before continuing with the boot process.  However, this code runs continuously so the boot process would never finish!
+- The webserver code includes the IP address of the Pi and the port over which web app will be transmitted.  The IP address of your Pi on your network can be determined by typing "ifconfig" in the command line.  If you are unsure what ports are available for communication over your local network, then contact your network administrator.
   
 ### Contact    
     
