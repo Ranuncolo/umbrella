@@ -13,7 +13,7 @@ It will also provide you weather data with up-to-the-minute precision, as well a
 
 This device will be significantly smaller and cheaper than a conventional weather station :)
 
-### Components
+## Required Components
 
 1. Raspberry Pi Model B+ - (newer models are available and are recommended due to faster processor and onboard WiFi)
 
