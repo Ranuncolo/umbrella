@@ -74,13 +74,13 @@ Adding webserver functionality to your Raspberry Pi is simple!  All you have to 
 
 > sudo dpkg -i node_latest_armhf.deb
 
-This should download the latest version of Node.Js for Debian.  The second command should install the package.
+The first line should download the latest version of Node.Js for Debian.  The second command should install the package.
 
 At this stage you should be able to run .js scripts from the command line using the command "node filename.js".  You can go one step further to get your web app code to launch when the Raspberry Pi boots up by editing your rc.local file!
 
 > sudo nano /etc/rc.local
 
-and add the following line of code above the "exit 0" line.  Do not delete the "exit 0" line!
+Then add the following line of code above the "exit 0" line.  Do not delete the "exit 0" line!
 
 > sudo node /usr/local/webserver.js &
 
