@@ -66,3 +66,13 @@ img {
         filter: grayscale(0%);
     }
 }
+
+.weathergraph{
+	width:700px; 
+	height:350px; 
+	margin-bottom:30px; 
+	border: 2px solid black; 
+	margin-right: auto; 
+	margin-left: auto
+	
+}

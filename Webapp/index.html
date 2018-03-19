@@ -6,73 +6,12 @@
 	    <title>Umbrella RPI</title>
         
         <link rel="stylesheet" href="main.css">
+		<link rel="stylesheet" href="dygraph.css">
 		<link rel="icon" 
       type="image/jpg" 
       href="icon.jpg" />
-		
-	<script src="https://www.gstatic.com/charts/loader.js"></script>
-	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-	<script src="jquery-csv.js"></script>
+	<script type="text/javascript" src="dygraph.js"></script>
 	
-    <script type="text/javascript">
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
-
-      function drawChart() {
-		
-		// Reading in a locally stored CSV file to an array of numbers
-		$.get("2017T.csv", function(csvString) {
-		var dataarray = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});  
-		
-	    // Turning array into format usable by Google Charts
-		var data = google.visualization.arrayToDataTable(dataarray);
-
-		// Formatting Google Charts
-        var options = {
-          title: 'Raspberry PI Temperature plot - Yearly',
-		  titleTextStyle: {
-			fontSize: '18',
-			},
-		  vAxis: { 
-			title: 'Temperature (\u00B0 C)' ,
-			titleTextStyle: {
-				italic: 'FALSE',
-				fontSize: '14',
-			},
-			baseline: '0',
-			baselineColor: 'black',
-			gridlines: { color: 'transparent'},
-			},
-		  hAxis: {
-			title: 'Date',
-			titleTextStyle: {
-				italic: 'FALSE',
-				fontSize: '14',
-			},
-			baseline: '0',
-			baselineColor: 'black',
-			gridlines: { color: 'transparent'},
-			},
-		  curveType: 'function',
-		  backgroundColor: {
-			stroke: 'black',
-			strokeWidth: '5',
-			},
-		  haxis: {
-			title: 'Hello',
-			},
-          legend: {position: 'none'},
-        };
-
-		//Creating Charts
-        var chart = new google.visualization.LineChart(document.getElementById('temp_year'));
-	
-        chart.draw(data, options);
-		});
-      }
-    </script>
-
-
     </head>
     <body>
         
@@ -92,13 +31,118 @@
   
         <h2>Historic Weather Data</h2>
 		
-        <p>
-         <!--
-            Code here for plotting data
-        -->
-
-    <div id="temp_year" style="width: 800px; height: 400px"></div>
-        </p>
+<div id="graphdiv1"class="weathergraph"></div>
+<div id="graphdiv2"class="weathergraph""></div>
+<div id="graphdiv3"class="weathergraph"></div>
+<div id="graphdiv4"class="weathergraph"></div>
+<script type="text/javascript">
+  g1 = new Dygraph(
+    document.getElementById("graphdiv1"),
+    "http://localhost:8080/2017T.csv?"+(new Date()).getTime(), // path to CSV file bypassing the browser cache
+    {
+			title: 'Temperature',
+            ylabel: 'Temperature (&#176;C)',
+			xlabel: 'Date',
+			axes: {
+				y: {
+				valueFormatter: function(v) {
+				return v + '&#176;C';  // controls formatting in the legend/mouseover
+				}}},
+			valueRange: [0, 30.1],
+			showRangeSelector: true,
+			visibility: [true,false,false,false],
+			titleHeight: 45,
+			xLabelHeight: 30,
+			color: 'red',
+			rangeSelectorPlotFillColor: "red",
+			rangeSelectorBackgroundStrokeColor : "",
+			rangeSelectorPlotFillGradientColor: "",
+			rangeSelectorPlotStrokeColor: "",
+			rangeSelectorHeight: 20
+	}          // options
+  );
+  
+   g2 = new Dygraph(
+    document.getElementById("graphdiv2"),
+    "http://localhost:8080/2017T.csv?"+(new Date()).getTime(), // path to CSV file bypassing the browser cache
+    {
+			title: 'Pressure',
+            ylabel: 'Pressure (mbar)',
+			xlabel: 'Date',
+			axes: {
+				y: {
+				valueFormatter: function(v) {
+				return v + 'mbar';  // controls formatting in the legend/mouseover
+				}}},
+			valueRange: [940, 1060.5],
+            showRangeSelector: true,
+			visibility: [false,true,false,false],
+			titleHeight: 45,
+			xLabelHeight: 30,
+			color: 'green',
+			rangeSelectorPlotFillColor: "green",
+			rangeSelectorBackgroundStrokeColor : "",
+			rangeSelectorPlotFillGradientColor: "",
+			rangeSelectorPlotStrokeColor: "",
+			rangeSelectorHeight: 20
+	
+	}          // options
+  );
+  
+     g3 = new Dygraph(
+    document.getElementById("graphdiv3"),
+    "http://localhost:8080/2017T.csv?"+(new Date()).getTime(), // path to CSV file bypassing the browser cache
+    {
+			title: 'Humidity',
+            ylabel: 'Relative Humidity (%)',
+			xlabel: 'Date',
+			axes: {
+				y: {
+				valueFormatter: function(v) {
+				return v + '%';  // controls formatting in the legend/mouseover
+				}}},	
+			valueRange: [0, 100.5],			
+            showRangeSelector: true,
+			visibility: [false,false,true,false],
+			titleHeight: 45,
+			xLabelHeight: 30,
+			color: 'blue',
+			rangeSelectorPlotFillColor: "blue",
+			rangeSelectorBackgroundStrokeColor : "",
+			rangeSelectorPlotFillGradientColor: "",
+			rangeSelectorPlotStrokeColor: "",
+			rangeSelectorHeight: 20
+	
+	}          // options
+  );
+  
+     g4 = new Dygraph(
+    document.getElementById("graphdiv4"),
+    "http://localhost:8080/2017T.csv?"+(new Date()).getTime(), // path to CSV file bypassing the browser cache
+    {
+			title: 'Brightness',
+            ylabel: 'Brightness (mw?)',
+			xlabel: 'Date',
+			axes: {
+				y: {
+				valueFormatter: function(v) {
+				return v + 'mW';  // controls formatting in the legend/mouseover
+				}}},	
+			valueRange: [0, 100.5],	
+            showRangeSelector: true,
+			visibility: [false,false,false,true],
+			titleHeight: 45,
+			xLabelHeight: 30,
+			color: 'orange',
+			rangeSelectorPlotFillColor: "orange",
+			rangeSelectorBackgroundStrokeColor : "",
+			rangeSelectorPlotFillGradientColor: "",
+			rangeSelectorPlotStrokeColor: "",
+			rangeSelectorHeight: 20
+	
+	}          // options
+  );
+</script>
         <ul>
             <li>umbrella code available on <a href="https://github.com/Ranuncolo/umbrella">GitHub</a></li>
         </ul>
