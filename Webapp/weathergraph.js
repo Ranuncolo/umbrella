@@ -1,73 +1,5 @@
-<!DOCTYPE html>
-<html>
-    <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	    <title>Umbrella RPI</title>
-        
-        <link rel="stylesheet" href="main.css">
-		<link rel="stylesheet" href="dygraph.css">
-		<link rel="stylesheet" href="tab.css">
-		<link rel="icon" 
-      type="image/jpg" 
-      href="icon.jpg" />
-	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dygraph/2.1.0/dygraph.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="weathergraph.js"></script>
+// Javascript graph creation
 
-    </head>
-    <body>
-        
-    
-        <img alt="umbrella" src="header.jpg" />
-       
-        
-        <h1>Weather Tracker</h1>
-        <h2>Live Weather Data</h2>
-        
-
-        <p>
-            Code here for live weather data.
-        </p>
-        
-             
-  
-        <h2>Historic Weather Data</h2>
-		
-<div class="tab">
-  <button class="tablinks" onclick="openGraph(event, 'temptab')" id="defaultOpen")>Temperature</button>
-  <button class="tablinks" onclick="openGraph(event, 'presstab')">Pressure</button>
-  <button class="tablinks" onclick="openGraph(event, 'humtab')">Humidity</button>
-  <button class="tablinks" onclick="openGraph(event, 'brighttab')">Brightness</button>
-  <button class="tablinks" onclick="openGraph(event, 'windtab')">Wind Speed</button>
-</div>
-
-<div id="temptab" class="tabcontent">
-<div id="temperature"class="weathergraph"></div>
-</div>
-
-<div id="presstab" class="tabcontent">
-<div id="pressure"class="weathergraph"></div>
-</div>
-
-<div id="humtab" class="tabcontent">
-<div id="humidity"class="weathergraph"></div>
-</div>
-
-<div id="brighttab" class="tabcontent">
-<div id="brightness"class="weathergraph"></div>
-</div>
-
-<div id="windtab" class="tabcontent">
- <p>
-            Coming soon!
-        </p>
-</div>
-
-
-
-
-<script type="text/javascript">
   g1 = new Dygraph(
     document.getElementById("temperature"),
     "http://localhost:8080/2017T.csv?"+(new Date()).getTime(), // path to CSV file bypassing the browser cache
@@ -174,9 +106,7 @@
 	
 	}          // options
   );
-</script>
 
-<script>
 function openGraph(evt, tabName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -194,16 +124,6 @@ function openGraph(evt, tabName) {
 	g3.resize(750,350);
 	g4.resize(750,350);
 }
-</script>
 
-<script>
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
-</script>
-
-        <ul>
-            <li>umbrella code available on <a href="https://github.com/Ranuncolo/umbrella">GitHub</a></li>
-        </ul>
-        
-    </body>
-</html>

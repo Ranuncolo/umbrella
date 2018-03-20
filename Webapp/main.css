@@ -68,11 +68,10 @@ img {
 }
 
 .weathergraph{
-	width:700px; 
+	width:auto; 
 	height:350px; 
 	margin-bottom:30px; 
 	border: 2px solid black; 
 	margin-right: auto; 
-	margin-left: auto
-	
+	margin-left: auto;
 }
