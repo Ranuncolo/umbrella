@@ -106,7 +106,9 @@
 	
 	}          // options
   );
+  
 
+  
 function openGraph(evt, tabName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -127,3 +129,4 @@ function openGraph(evt, tabName) {
 
 // Get the element with id="defaultOpen" and click on it
 document.getElementById("defaultOpen").click();
+
