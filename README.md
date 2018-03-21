@@ -19,7 +19,7 @@ Although the weather can change relatively quickly, you don't need to sample the
 
 Communication with the sensors is accomplished using the I<sup>2</sup>C protocol.  While the SPI protocol is much simpler and requires a lower processing overhead, the I<sup>2</sup>C protocol  only requires two lines connected to the Pi allowing for simpler circuitry.  Processing speed was not a priority in this design.
 
-The project is split into roughly three equal parts.  Equal work share was ensured through constant communication with other group members and offering help where possible.   These partd were: 
+The project is split into roughly three equal parts.  Equal work share was ensured through constant communication with other group members and offering help where possible.   These parts were: 
 
 1. Hardware and electronic circuit design - [Paul Harrison](http://github.com/pbh001)
 2. Data processing onboard the Raspberry Pi - [Rene Gaio](http://github.com/Ranuncolo)
