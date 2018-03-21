@@ -41,7 +41,7 @@ The project is split into roughly three equal parts.  Equal responsibility was e
 
 The connectivity of these parts of the system can be see in the block diagram below.
 
-![Block Diagram](https://github.com/Ranuncolo/umbrella/blob/master/BlockDiagram.jpg)
+![Block Diagram](https://github.com/Ranuncolo/umbrella/blob/master/BlockDiagram.png)
 
 Data is read from the sensors in binary format, converted to numeric values and stored in human readable csv files with conventional SI units.  Due to the age of the Pi used in this initial project this stage can take a few seconds.  A web server script is running on the Pi listening for data requests in port 8000.  When a request is made by a web browser on the network, our web app is transmitted to said web browser.  The web app plots the data using the Google Charts functionality within Javascript.  The benefit of Javascript is the client side execution that allows the data to be plotted on the user's web browser without adding too much load to the processor on the Pi.
 
