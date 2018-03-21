@@ -17,7 +17,7 @@ This device will be significantly smaller and cheaper than a conventional weathe
 
 Although the weather can change relatively quickly, you don't need to sample the weather very frequently to plot interesting weather trends.  This code will sample and record the weather every 15 minutes.  A latency of around 1 minute would be acceptable, but this code will save the sensor data in a much shorter time period than this.  Only a single sample needs to be stored in the memory buffer at any one time as data can be saved to the SD card onboard the Pi.
 
-Code is implemented in user
+Code is implemented in userspace.  The reduction in latency gained by running in kernel space is not required.  As the program is paired with a web app it is safer to deny the program access to the kernel, ensuring that the kernel remains protected.  This software required two threads - one for the data processing software and one for the web app.
 
 Communication with the sensors is accomplished using the I<sup>2</sup>C protocol.  While the SPI protocol is much simpler and requires a lower processing overhead, the I<sup>2</sup>C protocol  only requires two lines connected to the Pi allowing for simpler circuitry.  Processing speed was not a priority for these devices.  For the wind speed however, an ADC with SPI was used to allow many samples to be taken across a short period of time.  The sensors contain internal reed switches that are triggered as the device rotates.  Counting rotations over a period of 3s allows a good average wind speed to be detected.
 
@@ -27,18 +27,15 @@ The project is split into roughly three equal parts.  Equal work share was ensur
 2. Data processing onboard the Raspberry Pi - [Rene Gaio](http://github.com/Ranuncolo)
 3. Data visualisation in a web browser - [Daniel Marwick](http://github.com/danmarwick)
 
-The connectivity of these parts of the system can be see in the block diagram below.
+Hardware was therefore allocated approximately one third of the time was spent on hardware and the rest on software.  Debugging of the hardware was done on a bread board as components arrived.  Debugging of software was done as features were coded. The connectivity of these parts of the system can be see in the block diagram below.
 
 ![Block Diagram](https://github.com/Ranuncolo/umbrella/blob/master/BlockDiagram.png)
 
 Data is read from the sensors in binary format, converted to numeric values and stored in human readable csv files with conventional SI units.  Due to the age of the Pi used in this initial project this stage can take a few seconds.  A web server script is running on the Pi listening for data requests in port 8000.  When a request is made by a web browser on the network, our web app is transmitted to said web browser.  The web app plots the data using the dygraphs package within Javascript.  The benefit of Javascript is the client side execution that allows the data to be plotted on the user's web browser without adding too much load to the processor on the Pi.
 
-The device and software are markeed using Twitter and Facebook, sharing device features on relevan hashtags to reach our target market.  Version control is handled using git, with version 1.0 being our initial release when we reach a minimum viable product.  Hardware and software has been split between the team members as described above.
+The device and software are markeed using Twitter and Facebook, sharing device features on relevant hashtags to reach our target market.  Version control is handled using git, with version 1.0 being our initial release when we reach a minimum viable product.  Hardware and software has been split between the team members as described above.
 
-<!-- 6. Low level implementation: kernel or userspace and why?
-11. How many threads are needed and/or how can the load be distributed to allow a responsive application?
-13. Structure of the software in classes, associated unit tests to turn it into reliable software
-15. How much time is allocated to hard, software and debugging and how is this interleaved?
+<!-- 13. Structure of the software in classes, associated unit tests to turn it into reliable software
 18. Measurement of success of the application in the context of the problem given and evaluation of it. -->
 
 ## Required Components
