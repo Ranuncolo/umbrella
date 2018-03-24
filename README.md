@@ -71,13 +71,28 @@ This project is deemed succesful when it is able to detect, record and display w
            
         - Pin 6 - Ground
            
-- Most devices used in this project are surface mount ICs that can be difficult to solder without access to the right equipment.  Hobbyists may wish to look for equivalent through hole devices that can be mounted to veroboard more easily.  
+- Most devices used in this project are surface mount ICs that can be difficult to solder without access to the right equipment.  Hobbyists may wish to look for equivalent through-hole sensors that can be mounted to veroboard more easily for a simpler version that can be easily assembled at home.  
 
 
 ## Installation Instructions
 
 ### Data Processing Software
+When running your Raspberry Pi for the first time run the following in the terminal to locate and install any updates to the default packages.
 
+ > sudo apt-get update
+ 
+ > sudo apt-get upgrade
+
+To enable I<sup>2</sup>C devices on your Raspberry Pi you must install the following package: 
+
+ > sudo apt-get install i2c-tools
+ 
+To enable our devices on your Raspberry Pi you must make the following change to the OS:
+
+ > sudo raspi-config
+
+Then go to Interfacing Options > Advanced > I2C > Enable
+Also Interfacing Options > Advanced > SPI > Enable
 
 To compile and run the I<sup>2</sup>C software:
  
@@ -85,9 +100,13 @@ To compile and run the I<sup>2</sup>C software:
  
  > ./weather
  
- To compile and run the SPI software:
+To compile and run the SPI software:
  
  > g++ -c WindSpiMain.cpp g++ -fpermissive -Wall WindSpi.cpp WindSpiMain.cpp -o outBin
+ 
+ > ./outBin
+ 
+The next step of this project is to combine these two sections and have the code run on startup in headless mode.
  
 
 #### Notes
