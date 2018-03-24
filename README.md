@@ -35,8 +35,9 @@ Data is read from the sensors in binary format, converted to numeric values and 
 
 The device and software are markeed using Twitter and Facebook, sharing device features on relevant hashtags to reach our target market.  Version control is handled using git, with version 1.0 being our initial release when we reach a minimum viable product.  Hardware and software has been split between the team members as described above.
 
-<!-- 13. Structure of the software in classes, associated unit tests to turn it into reliable software
-18. Measurement of success of the application in the context of the problem given and evaluation of it. -->
+This project is deemed succesful when it is able to detect, record and display weather data in both real time and graphed formats.
+
+<!-- 13. Structure of the software in classes, associated unit tests to turn it into reliable software -->
 
 ## Required Components
 
@@ -60,15 +61,37 @@ The device and software are markeed using Twitter and Facebook, sharing device f
 
    
 #### Notes
-Tips, tricks and troubleshooting on hardware set up
+ - The I<sup>2</sup>C sensors require only four pins for the entire set of sensors.
+ 
+        - Pin 1 - 3.3V
+            
+        - Pin 3 - Data
+            
+        - Pin 5 - Clock
+           
+        - Pin 6 - Ground
+           
+- Most devices used in this project are surface mount ICs that can be difficult to solder without access to the right equipment.  Hobbyists may wish to look for equivalent through hole devices that can be mounted to veroboard more easily.  
+
 
 ## Installation Instructions
 
 ### Data Processing Software
-Data processing installation instructions
+
+
+To compile and run the I<sup>2</sup>C software:
+ 
+ > g++ umbrella.cpp -o weather
+ > ./weather
+ 
+ To compile and run the SPI software:
+ 
+ > g++ -c WindSpiMain.cpp g++ -fpermissive -Wall WindSpi.cpp WindSpiMain.cpp -o outBin
+ 
 
 #### Notes
 - When working with I<sup>2</sup>C sensors you must be careful to only read in the number of bits specified by the datasheet.  While you must read whole bytes from the chip, the relevant data is often comprised of a non-integer number of bytes - such as 12 bits.  Reading in these extra bits into your data can give erroneous readings.
+- While all I<sup>2</sup>C sensors transmit data in a similar format, there are minor variations between each sensor and component manufacturers don't always write the clearest instructions.
 
 ### Javascript Web App
 Adding webserver functionality to your Raspberry Pi is simple!  All you have to do is install Node.Js for Debian.  This can be accomplished using two commands:
