@@ -82,6 +82,7 @@ This project is deemed succesful when it is able to detect, record and display w
 To compile and run the I<sup>2</sup>C software:
  
  > g++ umbrella.cpp -o weather
+ 
  > ./weather
  
  To compile and run the SPI software:
