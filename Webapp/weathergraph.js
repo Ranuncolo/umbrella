@@ -1,8 +1,10 @@
 // Javascript graph creation
 
-  g1 = new Dygraph(
+	data = "http://109.246.189.57:32000/data.csv"; // path to CSV file bypassing the browser cache
+
+	g1 = new Dygraph(
     document.getElementById("temperature"),
-    "http://localhost:8080/2017T.csv?"+(new Date()).getTime(), // path to CSV file bypassing the browser cache
+    data,
     {
 			title: 'Temperature',
             ylabel: 'Temperature (&#176;C)',
@@ -28,7 +30,7 @@
   
    g2 = new Dygraph(
     document.getElementById("pressure"),
-    "http://localhost:8080/2017T.csv?"+(new Date()).getTime(), // path to CSV file bypassing the browser cache
+    data,
     {
 			title: 'Pressure',
             ylabel: 'Pressure (mbar)',
@@ -40,7 +42,7 @@
 				}}},
 			valueRange: [940, 1060.5],
             showRangeSelector: true,
-			visibility: [false,true,false,false],
+			visibility: [false,false,true,false],
 			titleHeight: 45,
 			xLabelHeight: 30,
 			color: 'green',
@@ -55,7 +57,7 @@
   
      g3 = new Dygraph(
     document.getElementById("humidity"),
-    "http://localhost:8080/2017T.csv?"+(new Date()).getTime(), // path to CSV file bypassing the browser cache
+    data,
     {
 			title: 'Humidity',
             ylabel: 'Relative Humidity (%)',
@@ -67,7 +69,7 @@
 				}}},	
 			valueRange: [0, 100.5],			
             showRangeSelector: true,
-			visibility: [false,false,true,false],
+			visibility: [false,true,false,false],
 			titleHeight: 45,
 			xLabelHeight: 30,
 			color: 'blue',
@@ -82,17 +84,17 @@
   
      g4 = new Dygraph(
     document.getElementById("brightness"),
-    "http://localhost:8080/2017T.csv?"+(new Date()).getTime(), // path to CSV file bypassing the browser cache
+    data,
     {
 			title: 'Brightness',
-            ylabel: 'Brightness (mw?)',
+            ylabel: 'Brightness (lux)',
 			xlabel: 'Date',
 			axes: {
 				y: {
 				valueFormatter: function(v) {
-				return v + 'mW';  // controls formatting in the legend/mouseover
+				return v + 'lux';  // controls formatting in the legend/mouseover
 				}}},	
-			valueRange: [0, 100.5],	
+			valueRange: [0, 1000.5],	
             showRangeSelector: true,
 			visibility: [false,false,false,true],
 			titleHeight: 45,
