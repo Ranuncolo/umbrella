@@ -100,7 +100,7 @@ Also Interfacing Options > Advanced > SPI > Enable
 
 To compile and run the I<sup>2</sup>C software:
  
- > g++ umbrella.cpp -o weather
+ > g++ umbrella.cpp geti2c.cpp computation.cpp -o weather
  
  > ./weather
  
@@ -111,7 +111,13 @@ To compile and run the SPI software:
  > ./outBin
  
 The next step of this project is to combine these two sections and have the code run on startup in headless mode.
- 
+
+
+In final_code folder is it possible to run all the sensors together compiling:
+
+> g++ umbrella.cpp geti2c.cpp computation.cpp WindSpi.cpp -o weather
+
+> ./weather
 
 #### Notes
 - When working with I<sup>2</sup>C sensors you must be careful to only read in the number of bits specified by the datasheet.  While you must read whole bytes from the chip, the relevant data is often comprised of a non-integer number of bytes - such as 12 bits.  Reading in these extra bits into your data can give erroneous readings.
