@@ -77,7 +77,9 @@ This project is deemed succesful when it is able to detect, record and display w
 
 - The pressure sensor has an awkward package with a metal case and pads on the bottom surface. It is especially difficult to solder!
 
-- Our wind sensors are mounted on a 3D printed arm with slightly imprecise measurements that required the wind sensors to be awkwardly bolted on.  When creating 3D printed elements be sure that your component will be compatible with the sensors!
+- Our wind sensors are mounted on a 3D printed arm with slightly imprecise measurements that required the wind sensors to be awkwardly bolted on.  When creating 3D printed elements be sure that your component will be compatible with the sensors.
+
+- Due to time constraints we were unable to create a case or an outdoor power supply solution.  These are left as a project for you, dear reader!
 
 
 ## Installation Instructions
@@ -100,7 +102,7 @@ To enable our devices on your Raspberry Pi you must make the following change to
 Then go to Interfacing Options > Advanced > I2C > Enable
 Also Interfacing Options > Advanced > SPI > Enable
 
-In the final code is it possible to run all the sensors together compiling:
+In the final code it is possible to run all the sensors together compiling:
 
 > g++ umbrella.cpp geti2c.cpp computation.cpp WindSpi.cpp -o weather
 
