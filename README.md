@@ -4,6 +4,8 @@
 
 Umbrella is a weather station based on Raspberry Pi.
 
+![Umbrella!](https://github.com/Ranuncolo/umbrella/blob/master/Assembled.jpg_large)
+
 Video demonstration:
 
 https://www.youtube.com/watch?v=GxtKGGudiI4
@@ -12,8 +14,8 @@ https://www.youtube.com/watch?v=GxtKGGudiI4
 ## Introduction
 Have you ever wondered what the local weather conditions are in your garden? Wouldn't you like a simple way to get all the necessary data for growing the best possible plants in your garden? 
 
-We have created a Raspberry Pi based Weather station that collects and displays all its data in a very easy to understand format. The device contains temperature, humidity, air pressure, ambient light and wind sensors.
-It will also provide you weather data with up-to-the-minute precision, as well as daily, weekly and monthly summaries.
+We have created a Raspberry Pi based Weather station that collects and displays all its data in a very easy to understand graphed format. The device contains temperature, humidity, air pressure, ambient light and wind sensors.
+It will also provide you weather data with up-to-the-minute precision.
 
 This device will be significantly smaller and cheaper than a conventional weather station :)
 
