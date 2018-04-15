@@ -123,7 +123,54 @@ double calc_hum()
 
 double calc_press()
 {
+    unsigned char P_bit[4];
     double Pressure = NAN;
+    
+    //instance of class:
+    geti2c presensor(string("pressure"), pre_add, 4);
+    
+    //address register + check status, else change in NAN:
+    int flag = -1;
+    flag = presensor.add_register();
+    if (flag <0)
+    {
+        Pressure = NAN;
+        return Pressure;
+    }
+    //read register + check status, else change in NAN:
+    flag = presensor.read_register(*P_bit);
+    if (flag <0)
+    {
+        Pressure = NAN;
+        return Pressure;
+    }
+    // Convert into value:
+    std::bitset<24> Pint(string("000000111111111111111111"));;
+    std::bitset<24>Pb1(P_bit[0]);
+    std::bitset<24>Pb2(P_bit[1]);
+    std::bitset<24>Pb3(P_bit[2]);
+    std::bitset<24>Pb4(P_bit[3]);
+    
+    //P_bit1 contains only status variables, ignored for the moment.
+    // Pb2      = 00000000 00000000 10101010
+    Pb2 = Pb2 << 10;
+    // Pcombo  = 00000010 10101000 00000000
+    
+    // Pb3     = 00000000 00000000 11011011
+    Pb3 = Pb3 << 2;
+    // Pb3     = 00000000 00000011 01101100
+    
+    // Pb4     = 00000000 00000000 11010111
+    Pb4 = Pb4 >> 6;
+    // Pb4     = 00000000 00000000 00000011
+    
+    // Pnum   = 00000000 00000000 00000000
+    Pint = Pint | Pb2;
+    Pint = Pint | Pb3;
+    Pint = Pint | Pb4;
+    
+    int Pre = (int)(Pint.to_ulong());
+    Pressure = Pre / 101325.0; // Pressure in atm
     return Pressure;
 }
 
