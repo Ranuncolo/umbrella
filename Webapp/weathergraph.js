@@ -16,7 +16,7 @@
 				}}},
 			valueRange: [0, 30.1],
 			showRangeSelector: true,
-			visibility: [true,false,false,false],
+			visibility: [true,false,false,false,false],
 			titleHeight: 45,
 			xLabelHeight: 30,
 			color: 'red',
@@ -42,7 +42,7 @@
 				}}},
 			valueRange: [940, 1060.5],
             showRangeSelector: true,
-			visibility: [false,false,true,false],
+			visibility: [false,false,true,false,false],
 			titleHeight: 45,
 			xLabelHeight: 30,
 			color: 'green',
@@ -69,7 +69,7 @@
 				}}},	
 			valueRange: [0, 100.5],			
             showRangeSelector: true,
-			visibility: [false,true,false,false],
+			visibility: [false,true,false,false,false],
 			titleHeight: 45,
 			xLabelHeight: 30,
 			color: 'blue',
@@ -96,7 +96,7 @@
 				}}},	
 			valueRange: [0, 1000.5],	
             showRangeSelector: true,
-			visibility: [false,false,false,true],
+			visibility: [false,false,false,true,false],
 			titleHeight: 45,
 			xLabelHeight: 30,
 			color: 'orange',
@@ -109,7 +109,32 @@
 	}          // options
   );
   
-
+     g5 = new Dygraph(
+    document.getElementById("windspeed"),
+    data,
+    {
+			title: 'Wind Speed',
+            ylabel: 'Wind Speed (m/s)',
+			xlabel: 'Date',
+			axes: {
+				y: {
+				valueFormatter: function(v) {
+				return v + 'm/s';  // controls formatting in the legend/mouseover
+				}}},	
+			valueRange: [0, 50.5],	
+            showRangeSelector: true,
+			visibility: [false,false,false,false,true],
+			titleHeight: 45,
+			xLabelHeight: 30,
+			color: 'orange',
+			rangeSelectorPlotFillColor: "orange",
+			rangeSelectorBackgroundStrokeColor : "",
+			rangeSelectorPlotFillGradientColor: "",
+			rangeSelectorPlotStrokeColor: "",
+			rangeSelectorHeight: 20
+	
+	}          // options
+  );
   
 function openGraph(evt, tabName) {
     var i, tabcontent, tablinks;
