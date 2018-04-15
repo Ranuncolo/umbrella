@@ -12,14 +12,14 @@ https://www.youtube.com/watch?v=GxtKGGudiI4
 ## Introduction
 Have you ever wondered what the local weather conditions are in your garden? Wouldn't you like a simple way to get all the necessary data for growing the best possible plants in your garden? 
 
-We proposed to create a Raspberry Pi Weather station that collects and displays all its data in a very easy to understand format. The device will initially feature temperature, humidity and air pressure sensors.
+We have created a Raspberry Pi based Weather station that collects and displays all its data in a very easy to understand format. The device contains temperature, humidity, air pressure, ambient light and wind sensors.
 It will also provide you weather data with up-to-the-minute precision, as well as daily, weekly and monthly summaries.
 
 This device will be significantly smaller and cheaper than a conventional weather station :)
 
 ## Technical Description
 
-Although the weather can change relatively quickly, you don't need to sample the weather very frequently to plot interesting weather trends.  This code will sample and record the weather every 15 minutes.  A latency of around 1 minute would be acceptable, but this code will save the sensor data in a much shorter time period than this.  Only a single sample needs to be stored in the memory buffer at any one time as data can be saved to the SD card onboard the Pi.
+Although the weather can change relatively quickly, you don't need to sample the weather very frequently to plot interesting weather trends.  As this code will sample and record the weather every minute, a latency of a few seconds would be acceptable.  Only a single sample needs to be stored in the memory buffer at any one time as data can be saved to the SD card onboard the Pi.
 
 Code is implemented in userspace.  The reduction in latency gained by running in kernel space is not required.  As the program is paired with a web app it is safer to deny the program access to the kernel, ensuring that the kernel remains protected.  This software required two threads - one for the data processing software and one for the web app.
 
@@ -35,13 +35,11 @@ Hardware was therefore allocated approximately one third of the time was spent o
 
 ![Block Diagram](https://github.com/Ranuncolo/umbrella/blob/master/BlockDiagram.png)
 
-Data is read from the sensors in binary format, converted to numeric values and stored in human readable csv files with conventional SI units.  Due to the age of the Pi used in this initial project this stage can take a few seconds.  A web server script is running on the Pi listening for data requests in port 32000.  When a request is made by a web browser on the network, our web app is transmitted to said web browser.  The web app plots the data using the dygraphs package within Javascript.  The benefit of Javascript is the client side execution that allows the data to be plotted on the user's web browser without adding too much load to the processor on the Pi.
+Data is read from the sensors in binary format, converted to numeric values and stored in human readable csv files with conventional SI units.  A web server script is running on the Pi listening for data requests in port 32000.  When a request is made by a web browser on the network, our web app is transmitted to said web browser.  The web app plots the data using the dygraphs package within Javascript.  The benefit of Javascript is the client side execution that allows the data to be plotted on the user's web browser without adding too much load to the processor on the Pi.
 
-The device and software are markeed using Twitter and Facebook, sharing device features on relevant hashtags to reach our target market.  Version control is handled using git, with version 1.0 being our initial release when we reach a minimum viable product.  Hardware and software has been split between the team members as described above.
+The device and software are marketed using Twitter and Facebook, sharing on relevant hashtags to reach our target market.  Version control is handled using git, with version 1.0 being our initial release when we reach a minimum viable product.  Hardware and software has been split between the team members as described above.
 
 This project is deemed succesful when it is able to detect, record and display weather data in both real time and graphed formats.
-
-<!-- 13. Structure of the software in classes, associated unit tests to turn it into reliable software -->
 
 ## Required Components
 
@@ -77,6 +75,10 @@ This project is deemed succesful when it is able to detect, record and display w
            
 - Most devices used in this project are surface mount ICs that can be difficult to solder without access to the right equipment.  Hobbyists may wish to look for equivalent through-hole sensors that can be mounted to veroboard more easily for a simpler version that can be easily assembled at home.  
 
+- The pressure sensor has an awkward package with a metal case and pads on the bottom surface. It is especially difficult to solder!
+
+- Our wind sensors are mounted on a 3D printed arm with slightly imprecise measurements that required the wind sensors to be awkwardly bolted on.  When creating 3D printed elements be sure that your component will be compatible with the sensors!
+
 
 ## Installation Instructions
 
@@ -98,22 +100,7 @@ To enable our devices on your Raspberry Pi you must make the following change to
 Then go to Interfacing Options > Advanced > I2C > Enable
 Also Interfacing Options > Advanced > SPI > Enable
 
-To compile and run the I<sup>2</sup>C software:
- 
- > g++ umbrella.cpp geti2c.cpp computation.cpp -o weather
- 
- > ./weather
- 
-To compile and run the SPI software:
- 
- > g++ -c WindSpiMain.cpp g++ -fpermissive -Wall WindSpi.cpp WindSpiMain.cpp -o outBin
- 
- > ./outBin
- 
-The next step of this project is to combine these two sections and have the code run on startup in headless mode.
-
-
-In final_code folder is it possible to run all the sensors together compiling:
+In the final code is it possible to run all the sensors together compiling:
 
 > g++ umbrella.cpp geti2c.cpp computation.cpp WindSpi.cpp -o weather
 
@@ -140,7 +127,7 @@ First open the file with:
 
 then add the following line of code above the "exit 0" line.  Do not delete the "exit 0" line!
 
-> sudo node /usr/local/webserver.js &
+> sudo node ~/final/webserver.js &
 
 If you save your code in a different folder then change the full path of the webserver.js file accordingly.
 
